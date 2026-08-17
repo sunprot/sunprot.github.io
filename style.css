@@ -1,17 +1,9 @@
-/* ============================================================
-   SunProt — Design System v3
-   Theme: Day · White Tones · Sky Blue · High Contrast
-   ============================================================ */
-
-/* === Custom Properties ==================================== */
 :root {
-    /* Surface layers */
     --surface-0:   #ffffff;
     --surface-1:   #f8fafc;
     --surface-2:   #f1f5f9;
     --surface-3:   #e2e8f0;
 
-    /* Brand blues */
     --sky-500:     #0ea5e9;
     --sky-600:     #0284c7;
     --sky-700:     #0369a1;
@@ -22,33 +14,28 @@
     --blue-600:    #2563eb;
     --indigo-500:  #6366f1;
 
-    /* Brand tints */
     --sky-50:      #f0f9ff;
     --sky-100:     #e0f2fe;
     --sky-200:     #bae6fd;
     --cyan-50:     #ecfeff;
     --cyan-100:    #cffafe;
 
-    /* Text — high contrast */
     --text-900:    #0f172a;
     --text-700:    #1e293b;
     --text-500:    #334155;
     --text-400:    #475569;
     --text-300:    #64748b;
 
-    /* Borders */
     --border-light: #e2e8f0;
     --border-mid:   #cbd5e1;
     --border-blue:  rgba(14, 165, 233, 0.25);
     --border-blue-hi: rgba(14, 165, 233, 0.45);
 
-    /* Shadows */
     --shadow-sm:  0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
     --shadow-md:  0 4px 12px rgba(15, 23, 42, 0.10), 0 2px 4px rgba(15, 23, 42, 0.06);
     --shadow-lg:  0 8px 24px rgba(15, 23, 42, 0.12), 0 4px 8px rgba(15, 23, 42, 0.06);
     --shadow-blue: 0 4px 16px rgba(14, 165, 233, 0.20);
 
-    /* Shape */
     --r-xs:   0.375rem;
     --r-sm:   0.5rem;
     --r-md:   0.75rem;
@@ -56,14 +43,12 @@
     --r-xl:   1.25rem;
     --r-full: 9999px;
 
-    /* Motion */
     --ease:   cubic-bezier(0.4, 0, 0.2, 1);
     --dur-s:  150ms;
     --dur-m:  220ms;
     --dur-l:  300ms;
 }
 
-/* === Reset ================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -84,25 +69,19 @@ a   { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 ul, ol { list-style: none; }
 
-/* === Scrollbar =========================================== */
 ::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--surface-2); }
 ::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--sky-500); }
 
-/* === Selection =========================================== */
 ::selection { background: var(--sky-100); color: var(--sky-700); }
 
-/* === Focus =============================================== */
 :focus-visible {
     outline: 2px solid var(--sky-500);
     outline-offset: 2px;
     border-radius: var(--r-xs);
 }
 
-/* ============================================================
-   Background — simple, no blur, no JS
-   ============================================================ */
 .bg-blobs {
     position: fixed;
     inset: 0;
@@ -113,7 +92,6 @@ ul, ol { list-style: none; }
 .blob {
     position: absolute;
     border-radius: 50%;
-    /* Using opacity instead of filter:blur for performance */
     opacity: 0.35;
 }
 .blob-1 {
@@ -127,9 +105,6 @@ ul, ol { list-style: none; }
     background: radial-gradient(circle, var(--cyan-100) 0%, transparent 70%);
 }
 
-/* ============================================================
-   Card — shared utility
-   ============================================================ */
 .card {
     background: var(--surface-0);
     border: 1px solid var(--border-light);
@@ -143,9 +118,6 @@ ul, ol { list-style: none; }
     box-shadow: var(--shadow-md);
 }
 
-/* ============================================================
-   Text Gradient
-   ============================================================ */
 .text-gradient {
     background: linear-gradient(135deg, var(--sky-600), var(--cyan-500));
     -webkit-background-clip: text;
@@ -153,20 +125,15 @@ ul, ol { list-style: none; }
     background-clip: text;
 }
 
-/* ============================================================
-   Navigation
-   ============================================================ */
 #navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
     background: rgba(255, 255, 255, 0.75);
-    /* backdrop-filter only on nav — small portion of screen */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid transparent;
-    transition: border-color var(--dur-m) var(--ease),
-                box-shadow var(--dur-m) var(--ease);
+    transition: border-color var(--dur-m) var(--ease), box-shadow var(--dur-m) var(--ease);
 }
 #navbar.scrolled {
     border-bottom-color: var(--border-light);
@@ -185,7 +152,6 @@ ul, ol { list-style: none; }
 }
 @media (min-width: 768px) { .nav-wrap { height: 68px; padding: 0 2rem; } }
 
-/* Logo */
 .nav-logo {
     display: flex;
     align-items: center;
@@ -212,7 +178,6 @@ ul, ol { list-style: none; }
 .logo-name { font-size: 0.95rem; font-weight: 700; color: var(--text-900); }
 .logo-sub  { font-size: 0.68rem; font-weight: 500; color: var(--text-300); }
 
-/* Desktop pill tabs */
 .nav-pills {
     display: none;
     align-items: center;
@@ -234,8 +199,7 @@ ul, ol { list-style: none; }
     font-weight: 500;
     color: var(--text-400);
     white-space: nowrap;
-    transition: color var(--dur-s) var(--ease),
-                background var(--dur-s) var(--ease);
+    transition: color var(--dur-s) var(--ease), background var(--dur-s) var(--ease);
 }
 .nav-btn svg { flex-shrink: 0; }
 .nav-btn:hover {
@@ -248,7 +212,6 @@ ul, ol { list-style: none; }
     box-shadow: var(--shadow-sm);
 }
 
-/* Hamburger */
 .hamburger {
     display: flex;
     align-items: center;
@@ -270,7 +233,6 @@ ul, ol { list-style: none; }
 }
 @media (min-width: 680px) { .hamburger { display: none; } }
 
-/* Hamburger / X icon toggle */
 .hamburger .icon-hamburger,
 .hamburger .icon-close {
     position: absolute;
@@ -292,9 +254,6 @@ ul, ol { list-style: none; }
     transform: translate(-50%, -50%) rotate(0deg) scale(1);
 }
 
-/* ============================================================
-   Mobile Menu
-   ============================================================ */
 #mobile-menu {
     position: fixed;
     inset: 0;
@@ -382,9 +341,6 @@ ul, ol { list-style: none; }
     color: var(--sky-700);
 }
 
-/* ============================================================
-   Main Layout
-   ============================================================ */
 #main-content {
     flex: 1;
     position: relative;
@@ -393,9 +349,6 @@ ul, ol { list-style: none; }
 }
 @media (min-width: 768px) { #main-content { padding-top: 68px; } }
 
-/* ============================================================
-   Loading State
-   ============================================================ */
 .state-container {
     min-height: 60vh;
     display: flex;
@@ -415,7 +368,6 @@ ul, ol { list-style: none; }
     border: 3px solid var(--border-blue);
     border-top-color: var(--sky-500);
     animation: spin 0.8s linear infinite;
-    /* Promote to own layer for GPU compositing */
     will-change: transform;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -425,9 +377,6 @@ ul, ol { list-style: none; }
     text-align: center;
 }
 
-/* ============================================================
-   Error State
-   ============================================================ */
 .error-card {
     max-width: 380px;
     width: 100%;
@@ -462,9 +411,6 @@ ul, ol { list-style: none; }
 .btn-retry:hover { background: var(--sky-600); }
 .btn-retry svg { width: 14px; height: 14px; }
 
-/* ============================================================
-   Hero — card style
-   ============================================================ */
 .hero {
     padding: 2.5rem 1.25rem 1.5rem;
 }
@@ -487,7 +433,6 @@ ul, ol { list-style: none; }
 }
 @media (min-width: 640px) { .hero-card { padding: 3rem 2.5rem; } }
 
-/* Top accent strip */
 .hero-card::before {
     content: '';
     position: absolute;
@@ -504,7 +449,6 @@ ul, ol { list-style: none; }
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    /* same gradient for ALL routes — consistent */
     background: linear-gradient(135deg, var(--sky-500), var(--cyan-400));
     box-shadow: var(--shadow-blue);
     color: #fff;
@@ -529,9 +473,6 @@ ul, ol { list-style: none; }
     line-height: 1.7;
 }
 
-/* ============================================================
-   Feature Cards
-   ============================================================ */
 .features-section {
     padding: 1.25rem 1.25rem 0;
 }
@@ -558,10 +499,7 @@ ul, ol { list-style: none; }
     box-shadow: var(--shadow-sm);
     padding: 1.125rem 0.75rem;
     text-align: center;
-    transition: border-color var(--dur-m) var(--ease),
-                box-shadow var(--dur-m) var(--ease),
-                transform var(--dur-m) var(--ease);
-    /* No backdrop-filter on cards — perf */
+    transition: border-color var(--dur-m) var(--ease), box-shadow var(--dur-m) var(--ease), transform var(--dur-m) var(--ease);
 }
 .feature-card:hover {
     border-color: var(--border-blue);
@@ -591,9 +529,6 @@ ul, ol { list-style: none; }
     color: var(--text-300);
 }
 
-/* ============================================================
-   Content Section
-   ============================================================ */
 .content-section {
     padding: 1.25rem 1.25rem 4rem;
 }
@@ -616,9 +551,6 @@ ul, ol { list-style: none; }
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ============================================================
-   Markdown Content
-   ============================================================ */
 .markdown-content {
     color: var(--text-500);
     line-height: 1.8;
@@ -732,9 +664,6 @@ ul, ol { list-style: none; }
     border: 1px solid var(--border-light);
 }
 
-/* ============================================================
-   Timeline (Versions)
-   ============================================================ */
 .timeline {
     position: relative;
     display: flex;
@@ -742,7 +671,6 @@ ul, ol { list-style: none; }
     gap: 1rem;
 }
 
-/* Vertical line */
 .timeline::before {
     content: '';
     position: absolute;
@@ -759,7 +687,6 @@ ul, ol { list-style: none; }
     align-items: flex-start;
 }
 
-/* Dot */
 .timeline-dot {
     flex-shrink: 0;
     width: 40px;
@@ -780,7 +707,6 @@ ul, ol { list-style: none; }
     box-shadow: 0 0 0 4px var(--sky-100), 0 0 12px rgba(14,165,233,0.3);
 }
 
-/* Card */
 .timeline-card {
     flex: 1;
     min-width: 0;
@@ -861,9 +787,6 @@ ul, ol { list-style: none; }
     background: var(--sky-400, #38bdf8);
 }
 
-/* ============================================================
-   Empty State
-   ============================================================ */
 .empty-state {
     padding: 3rem 1rem;
     text-align: center;
@@ -871,9 +794,6 @@ ul, ol { list-style: none; }
     font-size: 0.9rem;
 }
 
-/* ============================================================
-   Note Box
-   ============================================================ */
 .note-box {
     margin-top: 2rem;
     padding: 1rem 1.25rem;
@@ -894,9 +814,6 @@ ul, ol { list-style: none; }
 }
 .note-link:hover { color: var(--sky-700); }
 
-/* ============================================================
-   Footer
-   ============================================================ */
 footer {
     position: relative;
     z-index: 1;
