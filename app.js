@@ -1,13 +1,4 @@
-/**
- * SunProt — Application Logic v3
- * SPA Routing · Gist Fetching · UI Interactions
- */
-
 'use strict';
-
-// ============================================================
-// Configuration
-// ============================================================
 
 const CONFIG = {
     gists: {
@@ -49,12 +40,8 @@ const CONFIG = {
             note: true
         }
     },
-    cacheDuration: 5 * 60 * 1000   // 5 min
+    cacheDuration: 5 * 60 * 1000
 };
-
-// ============================================================
-// State
-// ============================================================
 
 const state = {
     currentRoute: 'versions',
@@ -64,23 +51,19 @@ const state = {
     menuOpen: false
 };
 
-// ============================================================
-// Utilities
-// ============================================================
-
 function parseVersions(markdown) {
     if (!markdown) return [];
-    const lines    = markdown.split('\n');
+    const lines = markdown.split('\n');
     const versions = [];
-    let current    = null;
-    let inList     = false;
+    let current = null;
+    let inList = false;
 
     for (const line of lines) {
         const vm = line.match(/^##?\s*\[?v?(\d+\.\d+(?:\.\d+)?)\]?\s*[-–]\s*(.+)$/i);
         if (vm) {
             if (current) versions.push(current);
             current = { version: vm[1], date: '', title: vm[2].trim(), changes: [] };
-            inList  = false;
+            inList = false;
         } else if (line.match(/^\*\*Date:\*\*|^Date:/i) && current) {
             const dm = line.match(/:\s*(.+)$/);
             if (dm) current.date = dm[1].trim();
@@ -108,10 +91,9 @@ function isCacheValid(key) {
     if (!state.cache.has(key)) return false;
     return (Date.now() - state.cache.get(key).timestamp) < CONFIG.cacheDuration;
 }
-const getCached  = key        => isCacheValid(key) ? state.cache.get(key).data : null;
-const setCache   = (key, val) => state.cache.set(key, { data: val, timestamp: Date.now() });
+const getCached = key => isCacheValid(key) ? state.cache.get(key).data : null;
+const setCache = (key, val) => state.cache.set(key, { data: val, timestamp: Date.now() });
 
-// Escape HTML to prevent XSS from markdown
 function escapeHtml(str) {
     return String(str)
         .replace(/&/g, '&amp;')
@@ -120,9 +102,10 @@ function escapeHtml(str) {
         .replace(/"/g, '&quot;');
 }
 
-// ============================================================
-// UI Builders
-// ============================================================
+function renderSanitizedMarkdown(md) {
+    const rawHtml = marked.parse(md);
+    return typeof window.DOMPurify !== 'undefined' ? DOMPurify.sanitize(rawHtml) : rawHtml;
+}
 
 function buildLoading() {
     return `
@@ -154,8 +137,8 @@ function buildError(msg) {
 
 function buildHero(route) {
     const words = route.heading.split(' ');
-    const last  = escapeHtml(words.pop());
-    const rest  = escapeHtml(words.join(' '));
+    const last = escapeHtml(words.pop());
+    const rest = escapeHtml(words.join(' '));
     return `
       <section class="hero">
         <div class="hero-inner">
@@ -238,14 +221,8 @@ function buildNote() {
       </div>`;
 }
 
-// ============================================================
-// Application
-// ============================================================
-
 const app = {
-
     init() {
-        // Set year in footer
         const yr = document.getElementById('current-year');
         if (yr) yr.textContent = new Date().getFullYear();
 
@@ -253,15 +230,13 @@ const app = {
         this.setupScrollBehavior();
         this.setupMobileMenu();
 
-        // Initial route from hash
-        const hash  = window.location.hash.slice(1);
+        const hash = window.location.hash.slice(1);
         const route = CONFIG.routes[hash] ? hash : 'versions';
         state.currentRoute = route;
         this.setActiveNav(route);
         this.loadRoute(route);
     },
 
-    // ----------------------------------------------------------
     setupNavigation() {
         document.querySelectorAll('.nav-btn, .mobile-nav-btn').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -282,10 +257,9 @@ const app = {
         }
     },
 
-    // ----------------------------------------------------------
     setupScrollBehavior() {
-        const navbar  = document.getElementById('navbar');
-        let ticking   = false;
+        const navbar = document.getElementById('navbar');
+        let ticking = false;
 
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -298,10 +272,9 @@ const app = {
         }, { passive: true });
     },
 
-    // ----------------------------------------------------------
     setupMobileMenu() {
-        const btn      = document.getElementById('mobile-menu-btn');
-        const menu     = document.getElementById('mobile-menu');
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
         const backdrop = document.getElementById('mobile-backdrop');
 
         btn.addEventListener('click', () => {
@@ -310,14 +283,13 @@ const app = {
 
         backdrop.addEventListener('click', () => this.closeMobileMenu());
 
-        // Close on Escape
         document.addEventListener('keydown', e => {
             if (e.key === 'Escape' && state.menuOpen) this.closeMobileMenu();
         });
     },
 
     openMobileMenu() {
-        const btn  = document.getElementById('mobile-menu-btn');
+        const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
         state.menuOpen = true;
@@ -326,12 +298,11 @@ const app = {
         btn.classList.add('is-open');
         btn.setAttribute('aria-expanded', 'true');
 
-        // Prevent body scroll while menu is open
         document.body.style.overflow = 'hidden';
     },
 
     closeMobileMenu() {
-        const btn  = document.getElementById('mobile-menu-btn');
+        const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
         state.menuOpen = false;
@@ -343,7 +314,6 @@ const app = {
         document.body.style.overflow = '';
     },
 
-    // ----------------------------------------------------------
     navigate(route) {
         if (!CONFIG.routes[route]) return;
         if (route === state.currentRoute) return;
@@ -363,17 +333,15 @@ const app = {
         });
     },
 
-    // ----------------------------------------------------------
     async loadRoute(route) {
-        const main   = document.getElementById('main-content');
-        const cfg    = CONFIG.routes[route];
+        const main = document.getElementById('main-content');
+        const cfg = CONFIG.routes[route];
         if (!cfg || !main) return;
 
-        document.title  = cfg.title;
-        main.innerHTML  = buildLoading();
+        document.title = cfg.title;
+        main.innerHTML = buildLoading();
         state.isLoading = true;
 
-        // Render loading icons immediately
         if (window.lucide) lucide.createIcons();
 
         try {
@@ -393,28 +361,26 @@ const app = {
                 const versions = parseVersions(md);
                 html += versions.length
                     ? buildTimeline(versions)
-                    : `<div class="content-card markdown-content">${marked.parse(md)}</div>`;
+                    : `<div class="content-card markdown-content">${renderSanitizedMarkdown(md)}</div>`;
             } else {
                 if (cfg.note) {
-                    html += `<div class="content-card markdown-content">${marked.parse(md)}${buildNote()}</div>`;
+                    html += `<div class="content-card markdown-content">${renderSanitizedMarkdown(md)}${buildNote()}</div>`;
                 } else {
-                    html += `<div class="content-card markdown-content">${marked.parse(md)}</div>`;
+                    html += `<div class="content-card markdown-content">${renderSanitizedMarkdown(md)}</div>`;
                 }
             }
 
             html += '</div></section>';
-            main.innerHTML  = html;
+            main.innerHTML = html;
             state.isLoading = false;
             state.lastError = null;
 
         } catch (err) {
-            console.error('[SunProt]', err);
             state.isLoading = false;
             state.lastError = err.message;
-            main.innerHTML  = buildError(err.message);
+            main.innerHTML = buildError(err.message);
         }
 
-        // Always re-initialise Lucide after innerHTML replacement
         if (window.lucide) lucide.createIcons();
     },
 
@@ -424,11 +390,6 @@ const app = {
     }
 };
 
-// ============================================================
-// Bootstrap
-// ============================================================
-
-// Wait for both DOM and deferred scripts
 function onReady(fn) {
     if (document.readyState !== 'loading') {
         fn();
