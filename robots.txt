@@ -4,4 +4,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://sunprot-web.rf.gd/sitemap.xml
+Sitemap: https://sunprot.github.io/sitemap.xml
