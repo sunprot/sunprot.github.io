@@ -4,35 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta -->
     <title>SunProt</title>
-    <meta name="description"  content="Official documentation, version history, and privacy policies for SunProt — the Android utility app by Enrique Brach.">
-    <meta name="author"       content="Enrique Brach">
-    <meta name="keywords"     content="SunProt, SunProt Android, Android utility, privacy policy, app documentation, Enrique Brach, lag fixer, app modder">
-    <meta name="robots"       content="index, follow">
-    <meta name="theme-color"  content="#0ea5e9">
-    <link rel="canonical"     href="https://sunprot.github.io/">
+    <meta name="description" content="Official documentation, version history, and privacy policies for SunProt Android Utility by Enrique Brach.">
+    <meta name="author" content="Enrique Brach">
+    <meta name="keywords" content="SunProt, SunProt Android, Android utility, privacy policy, app documentation, Enrique Brach, lag fixer, app modder">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0ea5e9">
+    <link rel="canonical" href="https://sunprot.github.io/">
 
-    <!-- Open Graph -->
-    <meta property="og:type"        content="website">
-    <meta property="og:url"         content="https://sunprot.github.io/">
-    <meta property="og:site_name"   content="SunProt">
-    <meta property="og:title"       content="SunProt">
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://gist.githubusercontent.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sunprot.github.io/">
+    <meta property="og:site_name" content="SunProt">
+    <meta property="og:title" content="SunProt">
     <meta property="og:description" content="Official documentation, version history, and privacy policies for SunProt Android Utility by Enrique Brach.">
-    <meta property="og:image"       content="icon.png">
-    <meta property="og:locale"      content="en_US">
+    <meta property="og:image" content="icon.png">
+    <meta property="og:locale" content="en_US">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card"        content="summary">
-    <meta name="twitter:title"       content="SunProt">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="SunProt">
     <meta name="twitter:description" content="Official documentation, version history, and privacy policies for SunProt Android Utility by Enrique Brach.">
-    <meta name="twitter:image"       content="icon.png">
+    <meta name="twitter:image" content="icon.png">
 
-    <!-- Favicon -->
-    <link rel="icon"             type="image/png" href="icon.png">
-    <link rel="apple-touch-icon"                  href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -45,26 +45,23 @@
     }
     </script>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Icons & Markdown -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/marked@9.1.6/marked.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.8/dist/purify.min.js" defer></script>
 
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Subtle background blobs (CSS only, no JS) -->
     <div class="bg-blobs" aria-hidden="true">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
     </div>
 
-    <!-- Navigation -->
     <nav id="navbar" aria-label="Main navigation">
         <div class="nav-wrap">
 
@@ -113,7 +110,6 @@
                 </button>
             </div>
 
-            <!-- Hamburger: two SVGs toggled by JS class -->
             <button id="mobile-menu-btn" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                 <svg class="icon-hamburger" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                      viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -129,7 +125,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" aria-hidden="true">
         <div id="mobile-backdrop"></div>
         <div id="mobile-panel">
@@ -173,10 +168,8 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <main id="main-content" role="main"></main>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-top">
