@@ -40,7 +40,8 @@ const CONFIG = {
             note: true
         }
     },
-    cacheDuration: 5 * 60 * 1000
+    cacheDuration: 15 * 60 * 1000
+
 };
 
 const state = {
@@ -342,12 +343,13 @@ const app = {
         main.innerHTML = buildLoading();
         state.isLoading = true;
 
-        if (window.lucide) lucide.createIcons();
-
         try {
             let md = getCached(route);
             if (!md) {
-                const res = await fetch(CONFIG.gists[route]);
+                const controller = new AbortController();
+                const timer = setTimeout(() => controller.abort(), 8000);
+                const res = await fetch(CONFIG.gists[route], { signal: controller.signal });
+                clearTimeout(timer);
                 if (!res.ok) throw new Error(`Server returned HTTP ${res.status}`);
                 md = await res.text();
                 setCache(route, md);
