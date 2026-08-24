@@ -2,7 +2,7 @@
 
 # ☀️ Welcome to SunProt Web!
 
-Hi there! 👋 Welcome to the source repository for the official **SunProt** website.
+Hi there! 👋 Welcome to the official repository for the **SunProt** website.
 
 <br/>
 
@@ -19,16 +19,16 @@ Hi there! 👋 Welcome to the source repository for the official **SunProt** web
 
 ### ✨ About This Repository
 
-This repository hosts the static web pages for **SunProt**. 
+This repository hosts the static files for the **SunProt** main website.
 
-Since we use **GitHub Pages** to keep our website online and accessible to everyone for free, this repo stays public so GitHub can build and serve the site smoothly! 🚀
+I use **GitHub Pages** to keep my website online and accessible to everyone for free, which is why this repository remains public so GitHub can serve the site smoothly! 🚀
 
-Feel free to check out our main site or join our community using the badges above!
+Feel free to visit the main site or check out my channel using the buttons above.
 
 <br/>
 
 <div align="center">
 
-Crafted with ❤️ by **[Enrique Brach](https://github.com/EnriqueBrach)**
+Developed with ❤️ by **[Enrique Brach](https://github.com/EnriqueBrach)**
 
 </div>
