@@ -1,17 +1,15 @@
 <div align="center">
 
-# ☀️ SunProt Official Website
+# ☀️ SunProt
 
-Welcome to the official repository for the SunProt landing page and web hub.
+Official repository hosting the static web assets for the **SunProt** homepage via GitHub Pages.
 
 <br/>
 
-[![Main Website](https://img.shields.io/badge/Main_Website-FFA500?style=for-the-badge&logo=googlechrome&logoColor=white)](https://sunprot.github.io)
-[![SunProt Modules](https://img.shields.io/badge/SunProt_Modules-4CAF50?style=for-the-badge&logo=android&logoColor=white)](https://sunprot-modules.vercel.app)
-
-[![Telegram Channel](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/BrachYT)
-[![YouTube Channel](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@EnriqueBrach)
-[![Terms & Privacy](https://img.shields.io/badge/Terms_%26_Privacy-6E7681?style=for-the-badge&logo=github&logoColor=white)](https://gist.github.com/EnriqueBrach/52bddb03d0fcc551ca9b904352d0957f)
+[![Main Website](https://img.shields.io/badge/Main_Website-21262d?style=for-the-badge&logo=googlechrome&logoColor=f1e05a)](https://sunprot.github.io)
+[![SunProt Modules](https://img.shields.io/badge/SunProt_Modules-21262d?style=for-the-badge&logo=android&logoColor=f1e05a)](https://sunprot-modules.vercel.app)
+[![Telegram](https://img.shields.io/badge/Telegram-21262d?style=for-the-badge&logo=telegram&logoColor=f1e05a)](https://t.me/BrachYT)
+[![YouTube](https://img.shields.io/badge/YouTube-21262d?style=for-the-badge&logo=youtube&logoColor=f1e05a)](https://youtube.com/@EnriqueBrach)
 
 <br/>
 
@@ -19,11 +17,11 @@ Welcome to the official repository for the SunProt landing page and web hub.
 
 </div>
 
-### ℹ️ Notice for Visitors
+### 📌 Repository Notice
 
-This repository hosts the static front-end files for GitHub Pages. For complete details, module downloads, and documentation, please use the links above to visit the official website.
+This repository is kept public solely to meet GitHub Pages deployment requirements for free web hosting. It contains only static front-end assets for the web portal.
 
-> ⚠️ **Disclaimer:** All official modules and updates are distributed exclusively through our official links listed above. Avoid downloading or trusting unofficial forks or third-party copies.
+For official tools, modules, and full project information, please visit the main website.
 
 <br/>
 
