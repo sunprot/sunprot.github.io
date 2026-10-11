@@ -10,8 +10,9 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0ea5e9">
 <meta name="color-scheme" content="light">
+<meta name="sunprot-build" content="56115397">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-hZJv4mCgoYN1HNqMKEunNKqJ4kP5IKgHu0tITk9hjCo='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://gist.githubusercontent.com; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-aUt7hAvgajbPc6qphAUFQy90HsduKw+3gfEPDrzhJvg='; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https:; connect-src 'self' https://gist.githubusercontent.com; object-src 'none'; base-uri 'none'; form-action 'none'">
 <link rel="canonical" href="https://sunprot.github.io/">
 
 <meta property="og:type" content="website">
@@ -34,8 +35,8 @@
 <link rel="preconnect" href="https://img.shields.io">
 <link rel="preconnect" href="https://img.youtube.com">
 
-<link rel="stylesheet" href="style.css">
-<script>(function(){var G={"versions":"https://gist.githubusercontent.com/EnriqueBrach/15bdd6f0fe09e568338fdad91603cbd2/raw","privacy":"https://gist.githubusercontent.com/EnriqueBrach/4778e2fb19fd2bd265283c644bd41d1b/raw","privacy-lite":"https://gist.githubusercontent.com/EnriqueBrach/3d8dffeecffee4e3cb80594136495aaa/raw"},h=location.hash.slice(1),r=G[h]?h:'versions';if(r!=='versions')document.documentElement.className='r-other';try{var p=fetch(G[r]).then(function(x){if(!x.ok)throw 0;return x.text()});p.catch(function(){});window.__gist={r:r,u:G[r],p:p}}catch(e){}})();</script>
+<link rel="stylesheet" href="style.css?v=56115397">
+<script>(function(){var G={"versions":"https://gist.githubusercontent.com/EnriqueBrach/15bdd6f0fe09e568338fdad91603cbd2/raw","privacy":"https://gist.githubusercontent.com/EnriqueBrach/4778e2fb19fd2bd265283c644bd41d1b/raw","privacy-lite":"https://gist.githubusercontent.com/EnriqueBrach/3d8dffeecffee4e3cb80594136495aaa/raw"},h=location.hash.slice(1),r=G[h]?h:'versions';if(r!=='versions')document.documentElement.className='r-other';try{var p=fetch(G[r]).then(function(x){if(!x.ok)throw 0;return x.text()});p.catch(function(){});window.__gist={r:r,u:G[r],p:p}}catch(e){}setTimeout(function(){if(!window.app){document.documentElement.className+=' boot-failed';var a=document.getElementById('boot-reload');if(a)a.href=location.pathname+'?r='+Date.now()+location.hash}},7000)})();</script>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"SunProt","alternateName":["SunProt Android"],"url":"https://sunprot.github.io/","author":{"@type":"Person","name":"Enrique Brach"},"description":"Official documentation and privacy policies for SunProt Android Utility."}
@@ -154,11 +155,10 @@
     </div>
 
     <main id="main-content" aria-busy="true">
-        <!-- Pre-render de la ruta por defecto (versions). Mantener igual a CONFIG.routes.versions en app.js -->
         <section class="hero" data-hero="versions">
             <div class="hero-inner">
                 <div class="hero-card">
-                    <div class="hero-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></div>
+                    <p class="hero-eyebrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>Changelog</p>
                     <h1 class="hero-title">SunProt <span class="text-gradient">Versions</span></h1>
                     <p class="hero-subtitle">Track the evolution of SunProt with our comprehensive version history and changelog.</p>
                 </div>
@@ -169,6 +169,10 @@
                 <div class="content-card skeleton" role="status">
                     <span class="sk-line"></span><span class="sk-line"></span><span class="sk-line"></span><span class="sk-line"></span>
                     <p class="loading-text">Loading…</p>
+                    <div class="boot-msg">
+                        <p>The page did not start correctly.</p>
+                        <a id="boot-reload" href="./">Reload</a>
+                    </div>
                     <noscript><p class="loading-text">JavaScript is required to load this page.</p></noscript>
                 </div>
             </div>
@@ -210,6 +214,6 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
     </button>
 
-    <script src="app.js" defer></script>
+    <script src="app.js?v=56115397" defer></script>
 </body>
 </html>
